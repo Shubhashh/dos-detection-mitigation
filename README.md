@@ -20,13 +20,13 @@ Simple web page that the server serves
 request_log.txt
 Auto-generated when the server runs. Stores timestamp, IP, and request type
 How to Run It
-You need Ubuntu Linux and Python 3. No extra libraries to install — everything uses the standard Python library.
+You need Ubuntu Linux ,Kali Linux and Python 3. No extra libraries to install — everything uses the standard Python library.
 Terminal 1 — Start the server:
-python3 server.py
+python3 server.py in Ubuntu Linux
 Terminal 2 — Start the mitigation engine (needs root):
-sudo python3 mitigation.py
+sudo python3 mitigation.py in Ubuntu Linux 
 Terminal 3 — Run the attack (from another machine or terminal):
-python3 attack.py
+python3 attack.py Kali Linux 
 Once the attack starts, you will see the mitigation script detecting the flood and blocking the attacker IP automatically. The block lasts 60 seconds and then the IP is unblocked.
 Detection Logic
 The mitigation script checks how many requests each IP sent in the last 3 seconds
@@ -42,7 +42,7 @@ Real-time log monitoring and sliding window based detection logic
 Setup I Used
 I ran this on two virtual machines connected via a host-only network in VirtualBox:
 Server VM: Ubuntu — ran server.py and mitigation.py
-Attacker VM: Ubuntu — ran attack.py
+Attacker VM: Kali — ran attack.py
 The server IP in my setup was 192.168.56.101 and the attacker was 192.168.56.102. You can change these in the scripts based on your setup.
 Note
 This project is only for learning purposes. I built and tested it in a closed lab environment. Please don't use the attack script on any real server or network.
